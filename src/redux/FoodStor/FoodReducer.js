@@ -6,9 +6,10 @@ const foodstate ={
 }
 
 const FoodReducer =(state = foodstate ,action)=>{
+    console.log(1)
     switch (action.type) {
         case Buy_pizzle:
-            return {...state,pizzl : state.pizzle - 1}
+            return {...state,pizzle : state.pizzle - 1}
         case Buy_sandwich:
             return {...state , sandwich : state.sandwich - 1}
         default:

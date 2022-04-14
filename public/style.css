@@ -53,3 +53,16 @@ body{
 #root html{
     height: 100%;
 }
+.puls{
+    height: 100%;
+    padding: 6px;
+    margin:15px 5px ;
+    background-color: red;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%{box-shadow: red 0 0 0 0 ;}
+    80%{box-shadow: #ff280000 0 0 0 20px ;}
+}
