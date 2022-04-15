@@ -1,10 +1,12 @@
 import React from "react";
-import { connect } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import { buyPizzle, buySandwich } from "../redux/FoodStor/FoodAction";
 
 
-const  MyStor =({pizzle , sandwich ,buypizzle , buysandwich})=>{
+const  MyStor =()=>{
   
+  var {pizzle , sandwich } = useSelector((state)=>{return state})
+  var disPacth = useDispatch()
   console.log(buyPizzle);
   return(
     <div className="">
@@ -13,27 +15,29 @@ const  MyStor =({pizzle , sandwich ,buypizzle , buysandwich})=>{
       <h5 className="text-center">تعداد ساندویچ<span className="puls">{sandwich}</span></h5>
       </div>
       <div className="text-center mt-5">
-        <button className="btn  btn-success mx-3" onClick={buypizzle}>خرید پیتزا</button>
-        <button className="btn  btn-warning mx-3" onClick={buysandwich}>خرید ساندویچ</button>
+        <button className="btn  btn-success mx-3" onClick={()=>disPacth(buyPizzle())}>خرید پیتزا</button>
+        <button className="btn  btn-warning mx-3" onClick={()=>disPacth(buySandwich())}>خرید ساندویچ</button>
       </div>
       
     </div>
   )
 }
 
-const stateToprops = state=>{
-  return{
-    pizzle:state.pizzle,
-    sandwich:state.sandwich
-  }
-}
+// const stateToprops = state=>{
+//   return{
+//     pizzle:state.pizzle,
+//     sandwich:state.sandwich
+//   }
+// }
 
-const  dispatchToproprs = dispatch=>{
+// const  dispatchToproprs = dispatch=>{
   
-  return{
-    buypizzle:()=>dispatch(buyPizzle()) ,
-    buysandwich:()=>dispatch(buySandwich())
-  }
-}
+//   return{
+//     buypizzle:()=>dispatch(buyPizzle()) ,
+//     buysandwich:()=>dispatch(buySandwich())
+//   }
+// }
 
-  export default connect(stateToprops,dispatchToproprs)(MyStor) ;
+  // export default connect(stateToprops,dispatchToproprs)(MyStor) ;
+
+  export default MyStor
